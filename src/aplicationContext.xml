@@ -8,6 +8,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
 ">
+    <!-->IMPORTAR ARCHIVO datosEmpresa.propiedades externo<-->
+    <context:property-placeholder location="classpath:IoC/datosEmpresa.propiedades"></context:property-placeholder>
+
+
     <!-->aca se configura la dependencia que se quiera usar, en esta caso, informes.<-->
     <bean id="miInforme" class="IoC.Informes">
 <!--dependencia-->
@@ -26,8 +30,8 @@
         <property name="informeNuevo" ref="miInforme">
             <!--en caso de usar metodo Setter en vez de un constructor, se pone el metodo SIN EL "SET" y la primera letra en minuscula-->
         </property>
-
-        <property name="email" value="mailPrueba@gmail.com"></property>
+<!-->TOMA EL DATO EMAIL DESDE EL ARCHIVO PROPIEDADES<-->
+        <property name="email" value="${email}"></property>
 
         <property name="nombreEmpresa" value="nombre de empresa PRUEBA"></property>
     </bean>
