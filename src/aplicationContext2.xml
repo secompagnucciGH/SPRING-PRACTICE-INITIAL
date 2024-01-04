@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+    <!-- Configuración de un bean para usar la dependencia de 'Informes' -->
+    <bean id="miInforme" class="IoC.Informes">
+        <!-- Dependencia -->
+    </bean>
+
+    <!-- Bean para 'SecretarioEmpleado' Singleton, no hace falta poner el Scope, ya que es el default de spring.-->
+    <bean id="miSecretarioEmpleadoP" class="IoC.SecretarioEmpleado">
+        <!-- Configuración de la propiedad 'informeNuevo' -->
+        <!-- Se referencia el bean 'miInforme' para la propiedad 'informeNuevo' -->
+        <!-- En caso de usar un método Setter en lugar de un constructor, se coloca el nombre del método sin "SET" y la primera letra en minúscula -->
+        <property name="informeNuevo" ref="miInforme"></property>
+
+    </bean>
+
+    <!-- Bean para 'SecretarioEmpleado' Prototype-->
+    <bean id="miSecretarioEmpleado" class="IoC.SecretarioEmpleado" scope="prototype">
+        <!-- Configuración de la propiedad 'informeNuevo' -->
+        <!-- Se referencia el bean 'miInforme' para la propiedad 'informeNuevo' -->
+        <!-- En caso de usar un método Setter en lugar de un constructor, se coloca el nombre del método sin "SET" y la primera letra en minúscula -->
+        <property name="informeNuevo" ref="miInforme"></property>
+
+    </bean>
+
+</beans>
