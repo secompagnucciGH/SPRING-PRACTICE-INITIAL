@@ -8,33 +8,32 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
 ">
-    <!-->IMPORTAR ARCHIVO datosEmpresa.propiedades externo<-->
+    <!-- Importar archivo 'datosEmpresa.propiedades' externo para configuración -->
     <context:property-placeholder location="classpath:IoC/datosEmpresa.propiedades"></context:property-placeholder>
 
-
-    <!-->aca se configura la dependencia que se quiera usar, en esta caso, informes.<-->
+    <!-- Configuración de un bean para usar la dependencia de 'Informes' -->
     <bean id="miInforme" class="IoC.Informes">
-<!--dependencia-->
+        <!-- Dependencia -->
     </bean>
 
-<!-->aca se configura el ID y quien va a usar el bean<-->
-    <!--> !!!!!!en este caso, JEFE EMPLEADO !!!!!!!! <bean id="miEmpleado" class="IoC.JefeEmpleado"> <-->
+    <!-- Configuración del ID y quién va a usar el bean -->
+    <!-- En este caso, se configura un bean para 'JefeEmpleado' -->
     <bean id="miEmpleado" class="IoC.JefeEmpleado">
-    <constructor-arg ref="miInforme"></constructor-arg>
+        <constructor-arg ref="miInforme"></constructor-arg>
     </bean>
 
-
-<!-->BEAN PARA SECRETARIOeMPLEADO<-->
+    <!-- Bean para 'SecretarioEmpleado' -->
     <bean id="miSecretarioEmpleado" class="IoC.SecretarioEmpleado">
+        <!-- Configuración de la propiedad 'informeNuevo' -->
+        <!-- Se referencia el bean 'miInforme' para la propiedad 'informeNuevo' -->
+        <!-- En caso de usar un método Setter en lugar de un constructor, se coloca el nombre del método sin "SET" y la primera letra en minúscula -->
+        <property name="informeNuevo" ref="miInforme"></property>
 
-        <property name="informeNuevo" ref="miInforme">
-            <!--en caso de usar metodo Setter en vez de un constructor, se pone el metodo SIN EL "SET" y la primera letra en minuscula-->
-        </property>
-<!-->TOMA EL DATO EMAIL DESDE EL ARCHIVO PROPIEDADES<-->
+        <!-- Toma el dato 'email' desde el archivo de propiedades -->
         <property name="email" value="${email}"></property>
 
+        <!-- Configuración del valor 'nombreEmpresa' como "nombre de empresa PRUEBA" -->
         <property name="nombreEmpresa" value="nombre de empresa PRUEBA"></property>
     </bean>
-
 
 </beans>
