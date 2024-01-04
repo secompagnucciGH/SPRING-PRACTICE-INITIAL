@@ -2,6 +2,7 @@ package IoC;
 
 public class DirectorEmpleado implements Empleados {
 
+
 // campo creacion informe (interfaz)
 
     private creacionInformes informeNuevo;
@@ -19,4 +20,18 @@ public class DirectorEmpleado implements Empleados {
     public String getInforme() {
         return "informe creado por el Director " + informeNuevo.getInformes();
     }
+
+    // METODO INIT /( Ejecutar tareas antes de que el bean esté disponible
+
+    public void metodoInit() {
+        System.out.println(" ** Tareas antes de que el bean esté listo.");
+    }
+
+    // METODO DESTROY /( Ejecutar tareas luego de que el bean se haya utilizado
+
+    public void metodoDestroy() {
+        System.out.println(" ** Tareas luego de utilizar el bean.");
+    }
+
 }
+

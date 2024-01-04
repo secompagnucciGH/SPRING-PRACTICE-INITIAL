@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+    <!-- Importar archivo 'datosEmpresa.propiedades' externo para configuración -->
+    <context:property-placeholder location="classpath:IoC/datosEmpresa.propiedades"></context:property-placeholder>
+
+    <!-- Configuración de un bean para usar la dependencia de 'Informes' -->
+    <bean id="miInforme" class="IoC.Informes">
+        <!-- Dependencia -->
+    </bean>
+
+    <!-- Configuración del ID y quién va a usar el bean -->
+    <!-- En este caso, se configura un bean para 'DirectorEmpleado' -->
+    <bean id="miEmpleado" class="IoC.DirectorEmpleado"
+    init-method="metodoInit"
+    destroy-method="metodoDestroy">
+        <constructor-arg ref="miInforme"></constructor-arg>
+    </bean>
+
+</beans>
