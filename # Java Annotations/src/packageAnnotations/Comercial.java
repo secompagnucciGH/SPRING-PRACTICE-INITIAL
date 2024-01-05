@@ -2,10 +2,16 @@ package packageAnnotations;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("Comercial")
 public class Comercial implements Empleados {
+
+    @Autowired
+    @Qualifier("informeFinanciero2") // bean ID que debe utilizar.
+    private InformesFinancieros nuevoInforme;
+    // dato de tipo informeFinanciero NUEVO INFORME, aca guarda la informacion que buscó en segundo plano.
 
     @Override
     public String getTareas() {
@@ -18,13 +24,19 @@ public class Comercial implements Empleados {
         // aca nuevoInforme, hace el getInforme y lo devuelve automatico.
     }
 
-    private InformesFinancieros nuevoInforme;
-    // dato de tipo informeFinanciero NUEVO INFORME, aca guarda la informacion que buscó en segundo plano.
+//   INYECCION DE DEPENDENCIA CON SETTER
 
-    @Autowired
-    // con el autowired Spring busca que clase implementa InformesFinancieros, en este caso, seria IF1.
-    public Comercial(InformesFinancieros nuevoInforme) {
-        this.nuevoInforme = nuevoInforme;
-    }
+//    @Autowired
+//    public void setNuevoInforme(InformesFinancieros nuevoInforme) {
+//        this.nuevoInforme = nuevoInforme;
+//    }
+
+// INYECCION DE DEPENDENCIA CON CONSTRUCTOR
+// Contructor con el autowired Spring busca que clase implementa InformesFinancieros, en este caso, seria IF1.
+
+//    @Autowired
+//    public Comercial(InformesFinancieros nuevoInforme) {
+//        this.nuevoInforme = nuevoInforme;
+//    }
 
 }
