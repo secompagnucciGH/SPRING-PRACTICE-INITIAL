@@ -19,6 +19,7 @@ public class usoAnotaciones2 {
         // USO DEL BEAN
         System.out.println(empleado1.getTareas());
         System.out.println(empleado1.getInformes());
+        
         // CERRAR CONTEXTO
         context.close();
 
