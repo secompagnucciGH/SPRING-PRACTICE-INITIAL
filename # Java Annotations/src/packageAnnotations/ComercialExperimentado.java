@@ -5,13 +5,12 @@ import org.springframework.beans.factory.InitializingBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 @Component("Comercial")
 
-public class Comercial implements Empleados, InitializingBean, DisposableBean {
+public class ComercialExperimentado implements Empleados, InitializingBean, DisposableBean {
 
     // POSTdestroy Y PREinit
     // Ejecucion de codigo despues de la creación del bean
@@ -32,7 +31,7 @@ public class Comercial implements Empleados, InitializingBean, DisposableBean {
 
     @Autowired
     @Qualifier("informeFinanciero2") // bean ID que debe utilizar.
-    private InformesFinancieros nuevoInforme;
+    private CreaciónInformesFinancieros nuevoInforme;
     // dato de tipo informeFinanciero NUEVO INFORME, aca guarda la informacion que buscó en segundo plano.
 
     @Override
@@ -49,15 +48,15 @@ public class Comercial implements Empleados, InitializingBean, DisposableBean {
 //   INYECCION DE DEPENDENCIA CON SETTER
 
 //    @Autowired
-//    public void setNuevoInforme(InformesFinancieros nuevoInforme) {
+//    public void setNuevoInforme(CreaciónInformesFinancieros nuevoInforme) {
 //        this.nuevoInforme = nuevoInforme;
 //    }
 
 // INYECCION DE DEPENDENCIA CON CONSTRUCTOR
-// Contructor con el autowired Spring busca que clase implementa InformesFinancieros, en este caso, seria IF1.
+// Contructor con el autowired Spring busca que clase implementa CreaciónInformesFinancieros, en este caso, seria IF1.
 
 //    @Autowired
-//    public Comercial(InformesFinancieros nuevoInforme) {
+//    public Comercial(CreaciónInformesFinancieros nuevoInforme) {
 //        this.nuevoInforme = nuevoInforme;
 //    }
 

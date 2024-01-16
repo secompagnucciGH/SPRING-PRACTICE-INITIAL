@@ -3,7 +3,7 @@ package packageAnnotations;
 import org.springframework.stereotype.Component;
 
 @Component
-public class InformeFinanciero1 implements InformesFinancieros{
+public class InformeFinanciero1 implements CreaciónInformesFinancieros {
 
     @Override
     public String getInformeFinanciero() {

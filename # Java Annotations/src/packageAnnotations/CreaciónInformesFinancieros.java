@@ -1,6 +1,6 @@
 package packageAnnotations;
 
-public interface InformesFinancieros {
+public interface CreaciónInformesFinancieros {
 
     // interfaz que va a implementar la clase
 
