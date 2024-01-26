@@ -1,0 +1,46 @@
+------------------------------------------------------------------------
+Explicación Detallada del Código - AnnotationsTest.Informes.Cliente
+------------------------------------------------------------------------
+
+1. **AplicacionPrincipal.java:**
+    a. Se importa la clase `AnnotationConfigApplicationContext` de Spring.
+    b. Se crea la clase `AplicacionPrincipal` con el método `main`.
+    c. Se crea un contexto de Spring (`context`) basado en la configuración definida en `ConfiguracionSpring.class`.
+
+2. **ConfiguracionSpring.java:**
+    a. Se definen los beans de Spring para las implementaciones de `ServicioMensaje` #1 y #2.
+    b. El bean `usoServicio1` se califica como `@Qualifier("usoServicio1")` y se inyecta con la implementación #1 de `ServicioMensaje`.
+    c. El bean `usoServicio2` se califica como `@Qualifier("usoServicio2")` y se inyecta con la implementación #2 de `ServicioMensaje`.
+
+3. **ServicioMensaje.java:**
+    a. Se define la interfaz `ServicioMensaje` con el método `obtenerMensaje()`.
+
+4. **ServicioMensajeImplementacion1.java:**
+    a. Se implementa la interfaz `ServicioMensaje` para la implementación #1.
+    b. El método `obtenerMensaje()` devuelve "IMPLEMENTACIÓN MENSAJE:_______________ #1".
+
+5. **ServicioMensajeImplementacion2.java:**
+    a. Se implementa la interfaz `ServicioMensaje` para la implementación #2.
+    b. El método `obtenerMensaje()` devuelve "IMPLEMENTACIÓN MENSAJE:_______________ #2".
+
+6. **UsoServicio.java:**
+    a. Se crea la clase `UsoServicio` que tiene un constructor que recibe un objeto `ServicioMensaje`.
+    b. El método `MostrarMensaje()` muestra el mensaje utilizando la implementación recibida.
+    c. El método `MostrarMensaje2()` también muestra el mensaje utilizando la implementación recibida.
+
+7. **AplicacionPrincipal.java (Continuación):**
+    a. Se obtiene el bean de `UsoServicio` con la implementación #1 (`usoServicio1`) desde el contexto de Spring.
+    b. Se muestra el mensaje utilizando `MostrarMensaje2()` que internamente utiliza la implementación #1.
+
+8. **AplicacionPrincipal.java (Continuación):**
+    a. Se obtiene el bean de `UsoServicio` con la implementación #2 (`usoServicio2`) desde el contexto de Spring.
+    b. Se muestra el mensaje utilizando `MostrarMensaje2()` que internamente utiliza la implementación #2.
+
+9. **Cierre de la Aplicación:**
+    a. Se cierra el contexto de Spring (`context`).
+    b. La aplicación finaliza con el mensaje:
+       "IMPLEMENTACIÓN MENSAJE:_______________ #1"
+       "IMPLEMENTACIÓN MENSAJE:_______________ #2"
+       "Process finished with exit code 0".
+
+------------------------------------------------------------------------

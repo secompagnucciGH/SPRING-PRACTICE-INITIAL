@@ -1,4 +1,4 @@
-package AnnotationsTest;
+package AnnotationsTest.Informes;
 
 public class InformeFinanciero implements CreadorDeInformes {
 
@@ -13,4 +13,10 @@ public class InformeFinanciero implements CreadorDeInformes {
     public String getTareas() {
         return "TAREAS DE COMPRAS";
     }
+
+    @Override
+    public String validarDatos() {
+        return "DATOS VALIDADOS";
+    }
+
 }

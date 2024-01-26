@@ -1,4 +1,4 @@
-package AnnotationsTest;
+package AnnotationsTest.Informes;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,4 +17,6 @@ public class ConfiguracionSpring {
     public Informante informante(CreadorDeInformes informe) {
         return new Informante(informe);
     }
+
+
 }

@@ -3,9 +3,11 @@ package packageAnnotations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration // para decirle que va a ser el archivo de configuración
-@ComponentScan("packageAnnotations") // de donde va a
+@ComponentScan("packageAnnotations") //
+@PropertySource("packageAnnotations/datosEmpresa.propiedades")
 public class empleadosConfig {
 
     // DEFINICION DEL BEAN INFORMEFINANCIEROCOMPRAS

@@ -19,6 +19,15 @@ public class usoAnotaciones2 {
         System.out.println(empleado.getTareas());
         System.out.println(empleado.getInformes());
 
+        // BEAN PARA EL USO DE PropertySource
+
+        DirectorFinanciero empleado2 = context.getBean("directorFinanciero", DirectorFinanciero.class);
+
+        System.out.println("EMAIL DEL DIRECTOR: " + empleado2.getEmail());
+
+        System.out.println("NOMBRE DE LA EMPRESA" + empleado2.getNombreEmpresa());
+
+
 
 //        // PEDIR BEAN AL CONTENEDOR
 //        Empleados empleado1 = context.getBean("Comercial", Empleados.class);

@@ -1,4 +1,4 @@
-package AnnotationsTest;
+package AnnotationsTest.Informes;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -14,6 +14,8 @@ public class MainApp {
         // Ejecutar métodos
         System.out.println("Tareas: " + informante.getTareas());
         System.out.println("Informe: " + informante.getInformes());
+        System.out.println(informante.validarDatos());
+
 
         // Cerrar el contexto
         context.close();
